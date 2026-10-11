@@ -590,6 +590,13 @@ function closeGalleryFolder() {
     document.getElementById("app").scrollTop = 0;
 }
 
+// Der obere Navigationsbutton führt innerhalb der Galerie immer
+// zurück zur Ordnerübersicht – nicht zur Startseite.
+function returnToGallery() {
+    closeGalleryFolder();
+    go("gallery");
+}
+
 function openGalleryLightbox(src, alt) {
     let lightbox = document.getElementById("gallery-lightbox");
     if (!lightbox) {
