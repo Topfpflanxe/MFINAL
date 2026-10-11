@@ -542,6 +542,9 @@ function openGalleryFolder(albumId) {
     if (!album) return;
     document.getElementById("gallery-folders").classList.add("hidden");
     document.getElementById("gallery-album").classList.remove("hidden");
+    const backButton = document.getElementById("gallery-back-button");
+    backButton.setAttribute("aria-label", "Zurück zur Galerie");
+    document.getElementById("gallery-back-label").textContent = "ZURÜCK ZUR GALERIE";
     document.getElementById("gallery-album-title").textContent = album.title;
     document.getElementById("gallery-album-count").textContent = album.count + (album.count === 1 ? " Foto" : " Fotos");
     const grid = document.getElementById("gallery-grid");
@@ -587,14 +590,20 @@ function loadGalleryPhoto(card, album, number) {
 function closeGalleryFolder() {
     document.getElementById("gallery-album").classList.add("hidden");
     document.getElementById("gallery-folders").classList.remove("hidden");
+    const backButton = document.getElementById("gallery-back-button");
+    backButton.setAttribute("aria-label", "Zurück zur Startseite");
+    document.getElementById("gallery-back-label").textContent = "STARTSEITE";
     document.getElementById("app").scrollTop = 0;
 }
 
-// Der obere Navigationsbutton führt innerhalb der Galerie immer
-// zurück zur Ordnerübersicht – nicht zur Startseite.
-function returnToGallery() {
-    closeGalleryFolder();
-    go("gallery");
+// In der Albumansicht zurück zur Ordnerübersicht; auf der Übersicht zur Startseite.
+function returnFromGallery() {
+    const album = document.getElementById("gallery-album");
+    if (album && !album.classList.contains("hidden")) {
+        closeGalleryFolder();
+        return;
+    }
+    go("home");
 }
 
 function openGalleryLightbox(src, alt) {
