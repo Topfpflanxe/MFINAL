@@ -529,7 +529,7 @@ document.addEventListener(
    GALERIE: ALBEN UND BILDER
 ===================================================== */
 const GALLERY_ALBUMS = {
-    "bilder-von-dir": { title: "Bilder von Dir", folder: "Bilder von Dir", count: 22 },
+    "bilder-von-dir": { title: "Bilder von Dir", folder: "Bilder von Dir", count: 31 },
     "familienbilder": { title: "Familienbilder", folder: "Familienbilder", count: 27 },
     "du-mit-papa": { title: "Du mit Papa", folder: "Du mit Papa", count: 10 },
     "konzertbilder": { title: "Konzertbilder", folder: "Konzertbilder", count: 10 },
